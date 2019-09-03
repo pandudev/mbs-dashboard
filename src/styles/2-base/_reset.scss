@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+  }
+
+html,
+body {
+  font-size: 14px;
+  @include font($font-base, normal, $darkGrey);
+  background-color: $lightGrey;
+}
+
+a {
+    text-decoration: unset;
+    color: $blue;
+  
+    &::hover {
+        color: $darkBlue;
+    }
+  }
+
+// img {
+//     width: 100%;
+//     height: auto;
+// }
+  

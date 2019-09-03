@@ -1,0 +1,42 @@
+.header {
+    flex-basis: 60px;
+    background-color: $blue;
+
+    &__wrapper {
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+
+    &__burger {
+        padding: 1rem;
+        cursor: pointer;
+        // width: 30px;
+        // height: 25px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &__bar {
+            width: 30px;
+            height: 5px;
+            background-color: $lightGrey;
+
+            &::after,
+            &::before {
+                @include pseudo();
+                height: 5px;
+                width: 30px;
+                background-color: $lightGrey;
+            }
+
+            &::after {
+                bottom: 5px;
+            }
+
+            &::before {
+                top: 5px;;
+            }
+        }
+    }
+}

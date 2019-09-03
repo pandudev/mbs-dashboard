@@ -1,0 +1,70 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: calc(100vh - 60px);
+
+    & > li {
+        height: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: relative;
+        z-index: 1;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid $black;
+        }
+
+        &:last-of-type {
+            margin-top: auto;
+            border-top: 1px solid $black;
+        }
+
+        & > a {
+            // padding: 0 .5rem;
+            z-index: 2;
+            flex: 1;
+            color: $lightGrey;
+
+            display: flex;
+            align-items: center;
+        }
+
+        &::before {
+            @include pseudo();
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: $blue;
+            transition: left .4s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+
+        &:hover::before {
+            left: 0;
+        }
+
+        &.active {
+            background-color: $yellow;
+
+            & > a {
+                color: $blue;
+
+                & > svg {
+                    fill: $blue;
+                }
+            }
+
+            &:hover::before {
+                left: -100%;
+            }
+        }
+    }
+
+    &__icon {
+        flex-basis: 40%;
+        height: 32px;
+        width: 32px;
+        fill: $lightGrey;
+    }
+}
